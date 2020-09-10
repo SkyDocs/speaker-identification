@@ -1,6 +1,8 @@
 #MacOS generated files
 .DS_Store
 
+.key
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
