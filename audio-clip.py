@@ -31,7 +31,12 @@ class SplitWavAudioMubin():
             if i == total_mins - min_per_split:
                 print('All splited successfully')
 
-
+# if you are having .mp3 file only
+# mp3 -> .wav
+"""
+sound = AudioSegment.from_mp3("/path/to/file.mp3")
+sound.export("/output/path/file.wav", format="wav")
+"""
 
 folder = ''  #wav files folder
 file = '' #.wav file
