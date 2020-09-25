@@ -408,9 +408,9 @@ labels = ["unknown"]
 
 predict(path, labels)
 
-model.save('sample.h5')
+model.save('speaker-recognition.h5')
 
-loaded_model = tf.keras.models.load_model('sample.h5')
+loaded_model = tf.keras.models.load_model('speaker-recognition.h5')
 loaded_model.layers[0].input_shape
 
 def predict(path, labels):
