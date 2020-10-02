@@ -15,6 +15,14 @@ Accuracy ~ 90%<br>
 
 To use the Speaker Identification from scratch, you will be needing a data set. For the testing version of our model we trained on the *Speaker recognition dataset* from [kaggle](https://www.kaggle.com/kongaevans/speaker-recognition-dataset). <br>
 
+Install the requirements by running 
+
+`pip install -r requirements.txt` or `pip3 install -r requirements.txt`
+
+And train the neural net by running the the `speaker-identification.ipynb` file or run
+
+`python speaker_identification.py` or `python3 speaker_identification.py`
+
 After training, save the generated `model.h5` locally in the root folder, the repo. And run
 
 `python predict.py` or `python3 predict.py` 
