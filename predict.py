@@ -9,6 +9,7 @@ from tensorflow import keras
 from pathlib import Path
 from IPython.display import display, Audio
 
+print("You will be asked to speak few seconds for the recognition of the speaker")
 DATASET_ROOT = "/Users/harshitruwali/Desktop/16000_pcm_speeches"
 NOISE_SUBFOLDER = "noise"
 DATASET_NOISE_PATH = os.path.join(DATASET_ROOT, NOISE_SUBFOLDER)
@@ -30,6 +31,7 @@ filename = "predict.wav"
 
 p = pyaudio.PyAudio()  # Create an interface to PortAudio
 
+print("-------------------------------------------------------------------------------------------")
 print('Recording')
 
 stream = p.open(format=sample_format,
@@ -45,14 +47,14 @@ for i in range(0, int(fs / chunk * seconds)):
 	data = stream.read(chunk)
 	frames.append(data)
 
-# Stop and close the stream 
+# Stop and close the stream
 stream.stop_stream()
 stream.close()
 # Terminate the PortAudio interface
 p.terminate()
 
 print('Finished recording')
-
+print("-------------------------------------------------------------------------------------------")
 # Save the recorded data as a WAV file
 wf = wave.open(filename, 'wb')
 wf.setnchannels(channels)
@@ -62,7 +64,7 @@ wf.writeframes(b''.join(frames))
 wf.close()
 
 
-"""Pre-processing Noise""" 
+"""Pre-processing Noise"""
 
 # If folder noise, does not exist, create it, otherwise do nothing
 if os.path.exists(DATASET_NOISE_PATH) is False:

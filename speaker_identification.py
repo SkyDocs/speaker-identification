@@ -9,10 +9,16 @@ Original file is located at
 Dataset source: [Kaggle](http://kaggle.com/kongaevans/speaker-recognition-data…)
 """
 
+
+"""
+# Reading the dataset from Drive in Colab.
+
 from google.colab import drive
 drive.mount('/content/drive')
 
 !unzip "/content/drive/My Drive/Data-sets/16000_pcm_speeches.zip"
+"""
+
 
 import os
 import shutil
@@ -348,118 +354,3 @@ for audios, labels in test_ds.take(1):
         else:
             print("Sorry")
         print("The speaker is" if labels[index] == y_pred[index] else "", class_names[y_pred[index]])
-
-#Predcit the speaker from the test dataset for real time pred.
-
-def paths_to_dataset(audio_paths):
-	"""Constructs a dataset of audios and labels."""
-	path_ds = tf.data.Dataset.from_tensor_slices(audio_paths)
-	# audio_ds = path_ds.map(lambda x: path_to_audio(x))
-	return tf.data.Dataset.zip((path_ds))
-
-def predict(path, labels):
-	test = paths_and_labels_to_dataset(path, labels)
-
-
-	test = test.shuffle(buffer_size=BATCH_SIZE * 8, seed=SHUFFLE_SEED).batch(
-	BATCH_SIZE
-	)
-	test = test.prefetch(tf.data.experimental.AUTOTUNE)
-
-
-	test = test.map(lambda x, y: (add_noise(x, noises, scale=SCALE), y))
-
-	for audios, labels in test.take(1):
-		# Get the signal FFT
-		ffts = audio_to_fft(audios)
-		# Predict
-		y_pred = model.predict(ffts)
-		# Take random samples
-		rnd = np.random.randint(0, 1, 1)
-		audios = audios.numpy()[rnd, :]
-		labels = labels.numpy()[rnd]
-		y_pred = np.argmax(y_pred, axis=-1)[rnd]
-
-		for index in range(1):
-			# For every sample, print the true and predicted label
-			# as well as run the voice with the noise
-			print(
-				"Speaker:\33{} {}\33[0m\tPredicted:\33{} {}\33[0m".format(
-					"[92m",y_pred[index],
-					"[92m", y_pred[index]
-				)
-			)
-			if class_names[y_pred[index]] == "Julia_Gillard":
-				print("Welcome")
-			else:
-				print("Sorry")
-			print(class_names[y_pred[index]])
-			# display(Audio(audios[index, :, :].squeeze(), rate=SAMPLING_RATE))
-
-# predict("content/1000.wav")
-
-path = ["/content/0.wav"]
-labels = ["unknown"]
-
-# path_ds = tf.data.Dataset.from_tensor_slices(audio_paths)
-# audio_ds = path_ds.map(lambda x: path_to_audio(x))
-# label_ds = tf.data.Dataset.from_tensor_slices(labels)
-# return tf.data.Dataset.zip((audio_ds, label_ds))
-
-predict(path, labels)
-
-model.save('speaker-recognition.h5')
-
-loaded_model = tf.keras.models.load_model('speaker-recognition.h5')
-loaded_model.layers[0].input_shape
-
-def predict(path, labels):
-	test = paths_and_labels_to_dataset(path, labels)
-
-
-	test = test.shuffle(buffer_size=BATCH_SIZE * 8, seed=SHUFFLE_SEED).batch(
-	BATCH_SIZE
-	)
-	test = test.prefetch(tf.data.experimental.AUTOTUNE)
-
-
-	test = test.map(lambda x, y: (add_noise(x, noises, scale=SCALE), y))
-
-	for audios, labels in test.take(1):
-		# Get the signal FFT
-		ffts = audio_to_fft(audios)
-		# Predict
-		y_pred = model.predict(ffts)
-		# Take random samples
-		rnd = np.random.randint(0, 1, 1)
-		audios = audios.numpy()[rnd, :]
-		labels = labels.numpy()[rnd]
-		y_pred = np.argmax(y_pred, axis=-1)[rnd]
-
-		for index in range(1):
-			# For every sample, print the true and predicted label
-			# as well as run the voice with the noise
-			print(
-				"Speaker:\33{} {}\33[0m\tPredicted:\33{} {}\33[0m".format(
-					"[92m",y_pred[index],
-					"[92m", y_pred[index]
-				)
-			)
-			if class_names[y_pred[index]] == "Julia_Gillard":
-				print("Welcome")
-			else:
-				print("Sorry")
-			print(class_names[y_pred[index]])
-			# display(Audio(audios[index, :, :].squeeze(), rate=SAMPLING_RATE))
-
-# predict("content/1000.wav")
-
-path = ["/content/0.wav"]
-labels = ["unknown"]
-
-# path_ds = tf.data.Dataset.from_tensor_slices(audio_paths)
-# audio_ds = path_ds.map(lambda x: path_to_audio(x))
-# label_ds = tf.data.Dataset.from_tensor_slices(labels)
-# return tf.data.Dataset.zip((audio_ds, label_ds))
-
-predict(path, labels)
