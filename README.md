@@ -7,7 +7,7 @@ Run the file in [Google Colab](https://colab.research.google.com/drive/12lmdoBpw
 This is a support repo for the main Project - [Personalised Voice Assistant](https://github.com/SkyDocs/personalised-voice-assistant).
 
 Dataset Source - [Kaggle](https://www.kaggle.com/kongaevans/speaker-recognition-dataset)<br>
-Epochs = 10<br>
+Epochs = 30<br>
 Accuracy ~ 90%<br>
 
 
@@ -18,6 +18,14 @@ To use the Speaker Identification from scratch, you will be needing a data set. 
 Install the requirements by running 
 
 `pip install -r requirements.txt` or `pip3 install -r requirements.txt`
+
+Download the Dataset or else create your own data set by speaking for 10 mins after running the file
+
+`python record.py` or `python3 record.py`
+
+And split the generated `data.wav` into 1 second files using the `audio-clip.py` file.<br>
+Run 
+`python audio-clip.py` or `python3 audio-clip.py`
 
 And train the neural net by running the the `speaker-identification.ipynb` file or run
 
