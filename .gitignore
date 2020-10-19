@@ -1,7 +1,8 @@
 #MacOS generated files
 .DS_Store
 
-.key
+# Generated wav files at the time of testing  
+*.wav
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
