@@ -47,4 +47,4 @@ To contribute Fork it, make the changes and push a pull request and we will get 
 
 ## License
 
-Licensed under [MIT License](https://github.com/SkyDocs/personalised-voice-assistant/blob/master/LICENSE)
+Licensed under [GNU General Public License v3.0](https://github.com/SkyDocs/speaker-identification/blob/master/LICENSE)
