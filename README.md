@@ -2,10 +2,12 @@
 
 Speaker Identification using Neural Net.<br>
 
-Run the file in [Google Colab](https://colab.research.google.com/drive/12lmdoBpwZkkrtI6jak9utgAYlpBEiEVM?usp=sharing).<br>
+Run the file in [Google Colab](https://colab.research.google.com/github/SkyDocs/speaker-identification/blob/master/speaker-identification.ipynb).<br>
+
+Run the Beta version in [Google Colab](https://colab.research.google.com/drive/12lmdoBpwZkkrtI6jak9utgAYlpBEiEVM#scrollTo=5j0lgVmAC7-V)<br>
 
 Epochs = 10<br>
-Accuracy ~ 98%<br>
+Accuracy ~ 97.22%<br>
 Speakers = 3<br>
 Dataset time = 10 mins
 
@@ -49,7 +51,7 @@ Run
 
 And train the neural net by running the the `speaker-identification.ipynb` file or run
 
-`python speaker_identification.py` or `python3 speaker_identification.py`
+`python speaker-identification.py` or `python3 speaker-identification.py`
 
 After training, save the generated `model.h5` locally in the root folder, the repo. And run
 
