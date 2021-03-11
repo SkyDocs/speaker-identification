@@ -33,8 +33,12 @@ And then append the 1 second wav files into the data-set folder with the user na
 
 ## Usage
 
-To use the Speaker Identification from scratch, you will be needing a data set. For the testing version of our model we trained on the *Speaker recognition dataset* from [kaggle](https://www.kaggle.com/kongaevans/speaker-recognition-dataset). <br>
+To use the Speaker Identification from scratch, you will be needing a data set. For the testing the our model we initially trained on the *Speaker recognition dataset* from [kaggle](https://www.kaggle.com/kongaevans/speaker-recognition-dataset). Then we created our own dataset for the recognition purpose.<br>
+### Dataset details:
+- time duration: 10 mins
+- splitted into 1 sec using audio-clip.py
 
+### Training
 I recommend making a fresh new environment for this project.
 
 Install the requirements by running 
@@ -47,25 +51,47 @@ Download the Dataset or else create your own data set by speaking for 10 mins af
 
 And split the generated `data.wav` into 1 second files using the `audio-clip.py` file.<br>
 Run 
-`python audio-clip.py` or `python3 audio-clip.py`
+`python audio_clip.py` or `python3 audio_clip.py`
 
 And train the neural net by running the the `speaker-identification.ipynb` file or run
 
 `python speaker_identification.py` or `python3 speaker_identification.py`
 
-After training, save the generated `model.h5` locally in the root folder, the repo. And run
+### For Regular devices
+*devices with at least i3 processor or equivalent and 4 gigs of RAM*
+After training, you will get the generated `model.h5` locally in the root folder of the repo. 
+And run
 
 `python predict.py` or `python3 predict.py` 
 
-(depending upon your environment) for real time predction.
+(depending upon your environment) for real time prediction. And then speak when prompted and let he
 
+### For arm/edge devices
+*devices like raspberry-pi & mobile devices(Android & iOS)*
+
+For these devices you can optimize the model for them using the script `tflite_convert.py`, but the *accuracy may reduce*.
+
+After successful training of the model you will also get `model_keras_tflite.zip` in your root folder of the repo.
+
+For the conversion of the standard keras model run 
+`python tflite_convert.py path_to_model_keras_tflite.zip` or `python3 tflite_convert.py path_to_model_keras_tflite.zip`
+
+And you will get a `model.tflite` for your arm/edge devices!
 
 ## Contribution
 
-This is a Purely open-source project, and feel free to suggest the changes.<br>
+This is a Purely open source project, and feel free to suggest changes.<br>
 
-To contribute Fork it, make the changes and push a pull request and we will get back to you.
+To contribute, Fork it, make the changes and push a pull request and we will get back to you.
 
+## Reporting a bug
+
+Create a issue, explaining how to reproduce the issue.
+
+## Disclaimer
+
+We provide limited support for the tflite models.
+ 
 
 ## License
 
