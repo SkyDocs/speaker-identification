@@ -13,7 +13,9 @@ Dataset time = 10 mins
 
 This is a support repo for the main Project - [Personalised Voice Assistant](https://github.com/SkyDocs/personalised-voice-assistant).
 
-***Make sure that you are using the same tensorflow version while trainging and running. Otherwise it will throw error `ValueError: Unknown layer: Functional` ref[ValueError: Unknown layer: Functional](https://stackoverflow.com/questions/63068639/valueerror-unknown-layer-functional)***
+***Make sure that you are using the same tensorflow version while trainging and running. Otherwise it will throw error `ValueError: Unknown layer: Functional`***
+
+***ref: [ValueError: Unknown layer: Functional](https://stackoverflow.com/questions/63068639/valueerror-unknown-layer-functional)***
 
 ## Data-Set
 
