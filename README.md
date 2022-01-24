@@ -21,6 +21,8 @@ This is a support repo for the main Project - [Personalised Voice Assistant](htt
 
 There are two options for the datasets. In either of the way you follow, download the dataset form [Kaggle](https://www.kaggle.com/kongaevans/speaker-recognition-dataset) and keep the `_background_noise_` &  `other` folder for the Noise.
 
+And pass the noise folder in the noise path while training and the same in the identification one too. 
+
 
 ### Kaggle
 
