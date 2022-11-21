@@ -6,4 +6,4 @@ pyaudio == 0.2.11
 
 pydub == 0.24.1
 
-tensorflow == 2.7.2
+tensorflow == 2.9.3
