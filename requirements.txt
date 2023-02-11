@@ -1,4 +1,4 @@
-ipython == 7.31.1
+ipython == 8.10.0
 
 numpy == 1.22.0 
 
